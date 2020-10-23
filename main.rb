@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'item'
 require_relative 'rule'
 require_relative 'checkout'
@@ -18,7 +19,8 @@ co = Checkout.new(rules)
 co.scan(item_a)
 co.scan(item_b)
 co.scan(item_c)
-puts "[A, B, C] = £#{co.total}"
+price = co.total
+puts "[A, B, C] = #{format('£%.2f', price)}"
 
 co = Checkout.new(rules)
 co.scan(item_b)
@@ -26,7 +28,8 @@ co.scan(item_a)
 co.scan(item_b)
 co.scan(item_a)
 co.scan(item_a)
-puts "[B, A, B, A, A] = £#{co.total}"
+price = co.total
+puts "[B, A, B, A, A] = #{format('£%.2f', price)}"
 
 co = Checkout.new(rules)
 co.scan(item_c)
@@ -36,7 +39,8 @@ co.scan(item_a)
 co.scan(item_d)
 co.scan(item_a)
 co.scan(item_b)
-puts "[C, B, A, A, D, A, B] = £#{co.total}"
+price = co.total
+puts "[C, B, A, A, D, A, B] = #{format('£%.2f', price)}"
 
 co = Checkout.new(rules)
 co.scan(item_c)
@@ -44,4 +48,5 @@ co.scan(item_a)
 co.scan(item_d)
 co.scan(item_a)
 co.scan(item_a)
-puts "[C, A, D, A, A] = £#{co.total}"
+price = co.total
+puts "[C, A, D, A, A] = #{format('£%.2f', price)}"
